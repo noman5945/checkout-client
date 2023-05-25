@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+::selection {
+  color: #fff;
+  background: #17a2b8;
+}
+
+header p {
+  margin-top: 5px;
+  font-size: 16px;
+}
+.price-input {
+  display: flex;
+  margin: 20px 0 35px;
+}
+
+.main {
+  display: flex;
+  margin: 30px;
+  width: 40%;
+}
