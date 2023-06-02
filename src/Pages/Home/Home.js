@@ -1,10 +1,11 @@
 import React from "react";
-import Range from "../Shared/Slider/Range";
+import "./home.css";
+import HomeBanner from "./HomeBanner/HomeBanner";
 
 const Home = () => {
   return (
     <div>
-      <Range></Range>
+      <HomeBanner></HomeBanner>
     </div>
   );
 };
