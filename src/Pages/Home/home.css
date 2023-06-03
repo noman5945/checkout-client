@@ -112,7 +112,7 @@
   cursor: pointer;
 }
 
-main .featurebar {
+.featurebar {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -123,7 +123,7 @@ main .featurebar {
   margin-top: 20px;
 }
 
-main .featurebar p {
+.featurebar p {
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
