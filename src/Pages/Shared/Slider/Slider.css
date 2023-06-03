@@ -16,6 +16,7 @@ header p {
 
 .main {
   display: flex;
-  margin: 30px;
-  width: 40%;
+  margin: 10px;
+  width: 20%;
+  margin-left: 33%;
 }
