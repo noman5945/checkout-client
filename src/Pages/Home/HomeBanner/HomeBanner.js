@@ -5,7 +5,7 @@ import three from "../../../assets/HomeImages/3.jpg";
 import checkoutLogo from "../../../assets/HomeImages/Checkout-white.png";
 import "../home.css";
 import { Link } from "react-router-dom";
-//import currentSlide from "./BannerSlider";
+import currentSlide from "./BannerSlider";
 
 const HomeBanner = () => {
   //onClick={() => currentSlide(1)}
@@ -18,9 +18,9 @@ const HomeBanner = () => {
           <img src={three} alt="" />
         </div>
         <div className="dots-container">
-          <span className="dot"></span>
-          <span className="dot"></span>
-          <span className="dot"></span>
+          <span className="dot" onClick={() => currentSlide(1)}></span>
+          <span className="dot" onClick={() => currentSlide(2)}></span>
+          <span className="dot" onClick={() => currentSlide(3)}></span>
         </div>
       </div>
 
