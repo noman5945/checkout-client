@@ -6,7 +6,8 @@ const HomeLocation = () => {
   const [tags, setTags] = useState([]);
 
   const test = () => {
-    console.log(tags);
+    console.log(tags, typeof tags);
+    setTags((arr) => []);
   };
 
   const handleTag = (event) => {
@@ -18,7 +19,7 @@ const HomeLocation = () => {
       !value.match(/^\s+$/gi) &&
       value !== ""
     ) {
-      setTags(event.target.value.trim());
+      setTags(() => [value]);
     }
   };
   return (
