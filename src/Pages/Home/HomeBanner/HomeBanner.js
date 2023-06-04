@@ -54,7 +54,7 @@ const HomeBanner = () => {
         </div>
       </div>
 
-      <div className="container">
+      <div className="Container mx-auto">
         <div className="image">
           <Link to="/">
             <img src={checkoutLogo} alt="Example" />

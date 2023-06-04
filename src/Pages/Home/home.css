@@ -47,7 +47,7 @@
   background-color: darkgray;
 }
 
-.container {
+.Container {
   position: absolute;
   top: 0;
   left: 0;
@@ -83,7 +83,7 @@
 .search-box input {
   width: 699px;
   padding: 10px 20px 10px 20px;
-  height: 30px;
+  /* height: 30px; */
   font-size: 16px;
   border: none;
   background: none;

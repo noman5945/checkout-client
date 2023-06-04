@@ -5,40 +5,51 @@ import Tags from "../../Shared/Tags/Tags";
 
 const HomeLocation = () => {
   const [tags, setTags] = useState("");
-  const [grouptags, setGroupTags] = useState([]);
+  let [grouptags, setGroupTags] = useState([]);
 
-  const test = () => {
-    console.log(tags, typeof tags);
-    setGroupTags([tags.split(" ")]);
-    //console.log(grouptags);
-    setTags("");
+  const test = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      //console.log(tags.split(" "));
+      setGroupTags(tags.split(" "));
+      console.log(grouptags);
+      setTags("");
+      event.target.value = "";
+    }
   };
-  const handleDeleteChip = () => {};
+  const handleDeleteChip = (idx) => {
+    setGroupTags((grouptag) => grouptag.filter((_, index) => index !== idx));
+    //console.log(idx);
+  };
   const handleTag = (event) => {
     const value = event.target.value;
-    if ((event.key === "Enter" || event.key === " ") && value !== "") {
-      setTags(value.trim());
+    if (value !== "") {
+      setTags(value);
     }
   };
   return (
     <div className="location">
-      <div className="tag-area" onBlur={test}>
+      <div className="tag-area">
         <ul>
-          <input
-            type="text"
-            class="tag-input"
-            id="tag-input"
-            onKeyDown={handleTag}
-          />
           {grouptags.map((word, index) => {
+            //console.log(index + " " + word);
             return (
               <Tags
                 key={index}
                 word={word}
-                handleDeleteChip={handleDeleteChip}
+                handleDeleteChip={() => handleDeleteChip(index)}
               ></Tags>
             );
           })}
+          <input
+            type="text"
+            class="tag-input"
+            id="tag-input"
+            onKeyDown={(e) => {
+              handleTag(e);
+              test(e);
+            }}
+          />
         </ul>
       </div>
 
