@@ -13,7 +13,7 @@ const HomeLocation = () => {
       //console.log(tags.split(" "));
       setGroupTags(tags.split(" "));
       console.log(grouptags);
-      setTags("");
+      //setTags("");
       event.target.value = "";
     }
   };
