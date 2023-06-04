@@ -79,7 +79,7 @@ rangeInput.forEach((input) => {
 const tagInput = document.querySelector(".tag-input");
 const tagArea = document.querySelector(".tag-area");
 const ul = document.querySelector(".tag-area ul");
-const label = document.querySelector(".label");
+//const label = document.querySelector(".label");
 
 let tags = [];
 
@@ -90,13 +90,13 @@ function addEvent(element) {
 
   element.addEventListener("focus", () => {
     tagArea.classList.add("active");
-    label.classList.add("label-active");
+    //label.classList.add("label-active");
   });
 
   element.addEventListener("blur", (e) => {
     tagArea.classList.remove("active");
     if (element.value === "" && tags.length === 0) {
-      label.classList.remove("label-active");
+      //label.classList.remove("label-active");
     }
     if (!element.value.match(/^\s+$/gi) && element.value !== "") {
       tags.push(e.target.value.trim());

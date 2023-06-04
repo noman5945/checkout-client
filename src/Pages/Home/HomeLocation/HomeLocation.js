@@ -1,12 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "../home.css";
 
 const HomeLocation = () => {
+  const [tags, setTags] = useState([]);
+
+  const test = () => {
+    console.log(tags);
+  };
+
+  const handleTag = (event) => {
+    const value = event.target.value;
+    if (
+      (event.keyCode === 32 ||
+        event.keyCode === 13 ||
+        value[value.length - 1] === " ") &&
+      !value.match(/^\s+$/gi) &&
+      value !== ""
+    ) {
+      setTags(event.target.value.trim());
+    }
+  };
   return (
     <div className="location">
-      <div className="tag-area">
+      <div className="tag-area" onBlur={test}>
         <ul>
-          <input type="text" class="tag-input" id="tag-input" />
+          <input
+            type="text"
+            class="tag-input"
+            id="tag-input"
+            onKeyDown={handleTag}
+          />
         </ul>
       </div>
 
