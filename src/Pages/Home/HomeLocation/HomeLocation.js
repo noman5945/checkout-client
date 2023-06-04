@@ -1,25 +1,23 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../home.css";
+import Tags from "../../Shared/Tags/Tags";
 
 const HomeLocation = () => {
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState("");
+  const [grouptags, setGroupTags] = useState([]);
 
   const test = () => {
     console.log(tags, typeof tags);
-    setTags((arr) => []);
+    setGroupTags([tags.split(" ")]);
+    //console.log(grouptags);
+    setTags("");
   };
-
+  const handleDeleteChip = () => {};
   const handleTag = (event) => {
     const value = event.target.value;
-    if (
-      (event.keyCode === 32 ||
-        event.keyCode === 13 ||
-        value[value.length - 1] === " ") &&
-      !value.match(/^\s+$/gi) &&
-      value !== ""
-    ) {
-      setTags(() => [value]);
+    if ((event.key === "Enter" || event.key === " ") && value !== "") {
+      setTags(value.trim());
     }
   };
   return (
@@ -32,6 +30,15 @@ const HomeLocation = () => {
             id="tag-input"
             onKeyDown={handleTag}
           />
+          {grouptags.map((word, index) => {
+            return (
+              <Tags
+                key={index}
+                word={word}
+                handleDeleteChip={handleDeleteChip}
+              ></Tags>
+            );
+          })}
         </ul>
       </div>
 
