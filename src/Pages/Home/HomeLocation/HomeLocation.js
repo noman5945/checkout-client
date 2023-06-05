@@ -5,34 +5,27 @@ import Tags from "../../Shared/Tags/Tags";
 
 const HomeLocation = () => {
   const [tags, setTags] = useState("");
-  let [grouptags, setGroupTags] = useState([]);
+  const [grouptags, setGroupTags] = useState([]);
 
-  const test = (event) => {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      //console.log(tags.split(" "));
-      setGroupTags(tags.split(" "));
-      console.log(grouptags);
-      //setTags("");
-      event.target.value = "";
-    }
-  };
   const handleDeleteChip = (idx) => {
     setGroupTags((grouptag) => grouptag.filter((_, index) => index !== idx));
-    //console.log(idx);
   };
   const handleTag = (event) => {
-    const value = event.target.value;
-    if (value !== "") {
-      setTags(value);
+    if (event.key === "Enter" && tags.trim() !== "") {
+      setGroupTags([...grouptags, tags.trim()]);
+      setTags("");
     }
   };
+
+  const handleInputChange = (e) => {
+    setTags(e.target.value);
+  };
+
   return (
     <div className="location">
       <div className="tag-area">
         <ul>
           {grouptags.map((word, index) => {
-            //console.log(index + " " + word);
             return (
               <Tags
                 key={index}
@@ -47,8 +40,9 @@ const HomeLocation = () => {
             id="tag-input"
             onKeyDown={(e) => {
               handleTag(e);
-              test(e);
             }}
+            onChange={handleInputChange}
+            value={tags}
           />
         </ul>
       </div>
