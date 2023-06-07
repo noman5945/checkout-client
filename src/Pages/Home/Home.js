@@ -5,6 +5,7 @@ import HomeLocation from "./HomeLocation/HomeLocation";
 import HomeFeatures from "./HomeFeatures/HomeFeatures";
 import SearchButton from "../Shared/SearchButton/SearchButton";
 import Range from "../Shared/Slider/Range";
+import Login from "../Login/Login";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <HomeFeatures></HomeFeatures>
       <Range></Range>
       <SearchButton></SearchButton>
+      <Login></Login>
     </div>
   );
 };

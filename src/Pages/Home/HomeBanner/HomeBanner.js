@@ -64,10 +64,13 @@ const HomeBanner = () => {
           <input type="text" placeholder="Search..." />
         </div>
         <div className="login-button">
-          <a className="logintext" href="Login.html">
+          <div
+            className="logintext"
+            onClick={() => window.my_modal_2.showModal()}
+          >
             {" "}
             Login/Sign up{" "}
-          </a>
+          </div>
         </div>
       </div>
     </header>
