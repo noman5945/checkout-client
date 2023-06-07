@@ -4,7 +4,7 @@ import "../../Home/home.css";
 const SearchButton = () => {
   return (
     <div>
-      <button type="submit" class="searchbutton">
+      <button type="submit" className="searchbutton">
         Search
       </button>
     </div>

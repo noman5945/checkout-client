@@ -36,7 +36,7 @@ const HomeLocation = () => {
           })}
           <input
             type="text"
-            class="tag-input"
+            className="tag-input"
             id="tag-input"
             onKeyDown={(e) => {
               handleTag(e);
