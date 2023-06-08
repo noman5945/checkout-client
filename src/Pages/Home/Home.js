@@ -8,13 +8,14 @@ import Range from "../Shared/Slider/Range";
 import Login from "../Login/Login";
 
 const Home = () => {
+  const link = "/restaurantlist";
   return (
     <div>
       <HomeBanner></HomeBanner>
       <HomeLocation></HomeLocation>
       <HomeFeatures></HomeFeatures>
       <Range></Range>
-      <SearchButton></SearchButton>
+      <SearchButton link={link}></SearchButton>
       <Login></Login>
     </div>
   );

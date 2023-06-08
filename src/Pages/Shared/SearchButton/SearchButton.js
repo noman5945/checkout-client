@@ -1,12 +1,15 @@
 import React from "react";
 import "../../Home/home.css";
+import { Link } from "react-router-dom";
 
-const SearchButton = () => {
+const SearchButton = ({ link }) => {
   return (
     <div>
-      <button type="submit" className="searchbutton">
-        Search
-      </button>
+      <Link to={link}>
+        <button type="submit" className="searchbutton">
+          Search
+        </button>
+      </Link>
     </div>
   );
 };
