@@ -1,5 +1,6 @@
 import React from "react";
 import StarIcon from "../../Shared/Icons/StarIcon";
+import LocationIcon from "../../Shared/Icons/LocationIcon";
 
 const RestaurantListCard = ({ resturant, time }) => {
   const { img, name, opening, closing, WorkTime, lowestPrice, ratings } =
@@ -37,14 +38,23 @@ const RestaurantListCard = ({ resturant, time }) => {
             <p className="text-xs text-deepRed">Distance:</p>
             <p>
               Starts from:{" "}
-              <span className=" text-deepRed">{lowestPrice} BDT</span>{" "}
+              <span className=" text-deepRed font-bold">{lowestPrice} BDT</span>{" "}
             </p>
           </div>
         </div>
         <div className="block">
-          <div className="flex flex-row">
+          <div className="flex flex-row justify-end">
             <StarIcon></StarIcon>
             <p className=" font-bold">{ratings} Ratings</p>
+          </div>
+          <div className=" mt-[15px]">
+            <button
+              data-theme="mytheme"
+              className="btn btn-outline btn-error btn-sm"
+            >
+              Get Directions
+              <LocationIcon></LocationIcon>
+            </button>
           </div>
         </div>
       </div>

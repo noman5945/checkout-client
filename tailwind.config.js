@@ -16,7 +16,14 @@ module.exports = {
     },
   },
   daisyui: {
-    themes: ["light", "dark", "cupcake"],
+    themes: [
+      "light",
+      {
+        mytheme: {
+          error: "#D00000",
+        },
+      },
+    ],
   },
   plugins: [require("daisyui")],
 };
