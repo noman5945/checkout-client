@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import RestaurantListCard from "./RestaurantListCard/RestaurantListCard";
+import { Link } from "react-router-dom";
 
 const Restaurant = () => {
+  const [restaurants, setRestaurants] = useState([]);
   let today = new Date();
   let dayCheck =
     today.getHours() > 6 && today.getHours() < 24 ? "Day" : "Night";
@@ -16,47 +18,21 @@ const Restaurant = () => {
     dayCheck,
   };
   console.log(time);
-  const restaurants = [
-    {
-      _id: "01",
-      name: "Takeout",
-      img: "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg",
-      ratings: "4.7",
-      opening: "10:00am",
-      closing: "11:00pm",
-      WorkTime: "Day",
-      lowestPrice: "450",
-    },
-    {
-      _id: "02",
-      name: "American Burger",
-      img: "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg",
-      ratings: "4.7",
-      opening: "10:00am",
-      closing: "11:00pm",
-      WorkTime: "Day",
-      lowestPrice: "370",
-    },
-    {
-      _id: "03",
-      name: "Chillox",
-      img: "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg",
-      ratings: "4.7",
-      opening: "10:00am",
-      closing: "11:00pm",
-      WorkTime: "Day",
-      lowestPrice: "325",
-    },
-  ];
+  useEffect(() => {
+    fetch("restaurants.json")
+      .then((res) => res.json())
+      .then((data) => setRestaurants(data));
+  }, []);
   return (
     <div>
       <div className="flex flex-row"></div>
       {restaurants.map((restaurant) => (
-        <RestaurantListCard
-          key={restaurant._id}
-          resturant={restaurant}
-          time={time}
-        ></RestaurantListCard>
+        <Link key={restaurant._id} to={"/restaurant"}>
+          <RestaurantListCard
+            resturant={restaurant}
+            time={time}
+          ></RestaurantListCard>
+        </Link>
       ))}
     </div>
   );
