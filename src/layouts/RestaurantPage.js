@@ -1,10 +1,11 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import TopSection from "../Pages/RestaurantPageComps/TopSection/TopSection";
 
 const RestaurantPage = () => {
   return (
-    <div>
-      <h2>Restaurant Page</h2>
+    <div className="container mx-auto">
+      <TopSection></TopSection>
       <Outlet></Outlet>
     </div>
   );

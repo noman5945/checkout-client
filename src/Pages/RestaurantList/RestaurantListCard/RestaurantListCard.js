@@ -9,8 +9,8 @@ const RestaurantListCard = ({ resturant, time }) => {
   const globalClosing = parseInt(closing.split(":")[0]) + 12;
 
   const openCheck =
-    opening.split(":")[0] < currentTime.split(":")[0] &&
-    globalClosing.toString() > currentTime.split(":")[0] &&
+    opening.split(":")[0] <= currentTime.split(":")[0] &&
+    globalClosing.toString() >= currentTime.split(":")[0] &&
     dayCheck === WorkTime
       ? true
       : false;
