@@ -14,6 +14,7 @@ module.exports = {
       greenopen: "#189D02",
       yellowStar: "#F1DA07",
       LightBlack: "#333131",
+      borderBlack: "#4F4D4D",
     },
   },
   daisyui: {

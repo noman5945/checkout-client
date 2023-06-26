@@ -3,6 +3,7 @@ import LocationButton from "../../../Shared/Buttons/LocationButton/LocationButto
 import HollowStar from "../../../Shared/Icons/HollowStar";
 import FollowButton from "../../../Shared/Buttons/FollowButton/FollowButton";
 import ShareButton from "../../../Shared/Buttons/ShareButton/ShareButton";
+import RestaurantFeatures from "../../../Shared/RestaurantFeatures/RestaurantFeatures";
 
 const RightSide = () => {
   const follwerNum = "12.4k";
@@ -10,6 +11,13 @@ const RightSide = () => {
   const ratings = "4.7";
   const time = "10:00am-11:00pm";
   const distance = "800";
+  const features = [
+    "Burger Joint",
+    "Parking Lot",
+    "Smoking Zone",
+    "Open space",
+    "Online Payment",
+  ];
 
   const handleFollow = () => {
     console.log("Follow this resturent");
@@ -20,7 +28,7 @@ const RightSide = () => {
   };
 
   return (
-    <div className=" ml-[100px] mt-[6rem] w-[45rem]">
+    <div className=" ml-[100px] mt-[4rem] w-[45rem]">
       <div className=" flex flex-row justify-between">
         <h2 className=" text-xl font-bold text-LightBlack">Rest Name</h2>
         <div>
@@ -56,6 +64,11 @@ const RightSide = () => {
         <div>
           <ShareButton handleShare={handleShare}></ShareButton>
         </div>
+      </div>
+      <div className=" my-5 w-[25rem] grid grid-cols-4 gap-1">
+        {features.map((feature) => (
+          <RestaurantFeatures text={feature}></RestaurantFeatures>
+        ))}
       </div>
     </div>
   );
