@@ -4,6 +4,8 @@ import HollowStar from "../../../Shared/Icons/HollowStar";
 import FollowButton from "../../../Shared/Buttons/FollowButton/FollowButton";
 import ShareButton from "../../../Shared/Buttons/ShareButton/ShareButton";
 import RestaurantFeatures from "../RestaurantFeatures/RestaurantFeatures";
+import Dropdown from "../../../Shared/Dropdown/Dropdown";
+import "../../../Home/home.css";
 
 const RightSide = () => {
   const follwerNum = "12.4k";
@@ -18,8 +20,14 @@ const RightSide = () => {
     "Open space",
     "Online Payment",
   ];
-
   const selectedFeatures = ["Burger Joint", "Open space", "Online Payment"];
+
+  const currentLoc = "Dhanmondi";
+  const locs = ["Mohammadpur", "Gulshan", "Uttara", "Dhanmondi", "Khilgaon"];
+
+  const RestFoods = ["Burger", "French Fries", "Shakes", "Chicken"];
+  const selectedFoods = ["Burger", "French Fries"];
+  let foundFoods = null;
 
   const handleFollow = () => {
     console.log("Follow this resturent");
@@ -77,7 +85,19 @@ const RightSide = () => {
         ))}
       </div>
       <div className=" flex flex-row">
-        <div></div>
+        <div className=" cursor-pointer w-[9rem] h-[2rem] bg-seldFeature rounded">
+          <Dropdown selected={currentLoc} options={locs}></Dropdown>
+        </div>
+        <div className=" flex flex-row">
+          {selectedFoods.map((food, index) => {
+            foundFoods = RestFoods.find((foo) => foo === food);
+            if (foundFoods) {
+              return <p className="tag h-[2rem] p-0">{foundFoods}</p>;
+            } else {
+              return <></>;
+            }
+          })}
+        </div>
       </div>
     </div>
   );
