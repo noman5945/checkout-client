@@ -84,8 +84,8 @@ const RightSide = () => {
           ></RestaurantFeatures>
         ))}
       </div>
-      <div className=" flex flex-row">
-        <div className=" cursor-pointer w-[9rem] h-[2rem] bg-seldFeature rounded">
+      <div className=" flex flex-row items-start">
+        <div className=" cursor-pointer w-[9rem] h-[2rem] bg-seldFeature rounded mr-2">
           <Dropdown selected={currentLoc} options={locs}></Dropdown>
         </div>
         <div className=" flex flex-row">

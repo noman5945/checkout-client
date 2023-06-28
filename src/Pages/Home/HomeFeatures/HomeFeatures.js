@@ -23,7 +23,7 @@ const HomeFeatures = () => {
       </div>
       <p className="pricerange">Price Range(Ex: 500-1200)</p>
 
-      <div className="radio">
+      <div className="home-radio">
         <div className="radio-container">
           <input type="radio" id="radio1" name="radio-group" />
           <label htmlFor="radio1" className="radio-button">
