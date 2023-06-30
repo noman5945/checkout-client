@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import RadioButtonOptions from "../../Shared/RadioButtonOptions/RadioButtonOptions";
+import { useNavigate } from "react-router-dom";
 
 const RestNavBar = () => {
   const [feedActive, setFeedActive] = useState(true);
@@ -7,6 +8,7 @@ const RestNavBar = () => {
   const [menuActive, setmenuActive] = useState(false);
   const [photosActive, setPhotosActive] = useState(false);
   const [revActive, setRevActive] = useState(false);
+  const nav = useNavigate();
 
   const activateFeed = () => {
     setFeedActive(true);
@@ -14,6 +16,7 @@ const RestNavBar = () => {
     setmenuActive(false);
     setPhotosActive(false);
     setRevActive(false);
+    nav("/restaurant");
   };
 
   const activateAbout = () => {
@@ -22,6 +25,7 @@ const RestNavBar = () => {
     setmenuActive(false);
     setPhotosActive(false);
     setRevActive(false);
+    nav("/restaurant/About");
   };
 
   const activateMenu = () => {
@@ -30,6 +34,7 @@ const RestNavBar = () => {
     setmenuActive(true);
     setPhotosActive(false);
     setRevActive(false);
+    nav("/restaurant/Menu");
   };
 
   const activatePhoto = () => {
@@ -38,6 +43,7 @@ const RestNavBar = () => {
     setmenuActive(false);
     setPhotosActive(true);
     setRevActive(false);
+    nav("/restaurant/Photos");
   };
 
   const activateRev = () => {
@@ -46,6 +52,7 @@ const RestNavBar = () => {
     setmenuActive(false);
     setPhotosActive(false);
     setRevActive(true);
+    nav("/restaurant/Reviews");
   };
 
   return (
