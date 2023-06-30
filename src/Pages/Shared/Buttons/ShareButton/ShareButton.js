@@ -5,10 +5,10 @@ const ShareButton = ({ handleShare }) => {
   return (
     <button
       data-theme="mytheme"
-      className="btn btn-outline btn-error btn-sm"
+      className="btn btn-error btn-sm"
       onClick={handleShare}
     >
-      Share
+      <p className=" text-LetWhite font-semibold">Share</p>
       <img src={shareSVG} alt="" />
     </button>
   );

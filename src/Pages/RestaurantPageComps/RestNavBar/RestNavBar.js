@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import RadioButtonOptions from "../../Shared/RadioButtonOptions/RadioButtonOptions";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const RestNavBar = () => {
   const [feedActive, setFeedActive] = useState(true);
@@ -9,6 +9,8 @@ const RestNavBar = () => {
   const [photosActive, setPhotosActive] = useState(false);
   const [revActive, setRevActive] = useState(false);
   const nav = useNavigate();
+  const currentPage = useLocation();
+  console.log(currentPage.pathname);
 
   const activateFeed = () => {
     setFeedActive(true);
@@ -55,6 +57,19 @@ const RestNavBar = () => {
     nav("/restaurant/Reviews");
   };
 
+  /*
+  if (currentPage.pathname === "/restaurant") {
+    activateFeed();
+  } else if (currentPage.pathname === "/restaurant/About") {
+    activateAbout();
+  } else if (currentPage.pathname === "/restaurant/Menu") {
+    activateMenu();
+  } else if (currentPage.pathname === "/restaurant/Photos") {
+    activatePhoto();
+  } else if (currentPage.pathname === "/restaurant/Reviews") {
+    activateRev();
+  }
+  */
   return (
     <div className=" w-full my-[4rem] bg-NavBg flex flex-row items-center justify-between">
       <div className="flex flex-row py-3 px-8 items-center">
