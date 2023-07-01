@@ -1,75 +1,35 @@
-import React, { useState } from "react";
+import React from "react";
 import RadioButtonOptions from "../../Shared/RadioButtonOptions/RadioButtonOptions";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import RestNavButton from "./RestNavButton/RestNavButton";
 
 const RestNavBar = () => {
-  const [feedActive, setFeedActive] = useState(true);
-  const [aboutActive, setaboutActive] = useState(false);
-  const [menuActive, setmenuActive] = useState(false);
-  const [photosActive, setPhotosActive] = useState(false);
-  const [revActive, setRevActive] = useState(false);
-  const nav = useNavigate();
   const currentPage = useLocation();
   console.log(currentPage.pathname);
 
-  const activateFeed = () => {
-    setFeedActive(true);
-    setaboutActive(false);
-    setmenuActive(false);
-    setPhotosActive(false);
-    setRevActive(false);
-    nav("/restaurant");
-  };
+  const navOptions = [
+    {
+      name: "Feed",
+      link: "/restaurant",
+    },
+    {
+      name: "About",
+      link: "/restaurant/About",
+    },
+    {
+      name: "Menu",
+      link: "/restaurant/Menu",
+    },
+    {
+      name: "Photos",
+      link: "/restaurant/Photos",
+    },
+    {
+      name: "Reviews",
+      link: "/restaurant/Reviews",
+    },
+  ];
 
-  const activateAbout = () => {
-    setFeedActive(false);
-    setaboutActive(true);
-    setmenuActive(false);
-    setPhotosActive(false);
-    setRevActive(false);
-    nav("/restaurant/About");
-  };
-
-  const activateMenu = () => {
-    setFeedActive(false);
-    setaboutActive(false);
-    setmenuActive(true);
-    setPhotosActive(false);
-    setRevActive(false);
-    nav("/restaurant/Menu");
-  };
-
-  const activatePhoto = () => {
-    setFeedActive(false);
-    setaboutActive(false);
-    setmenuActive(false);
-    setPhotosActive(true);
-    setRevActive(false);
-    nav("/restaurant/Photos");
-  };
-
-  const activateRev = () => {
-    setFeedActive(false);
-    setaboutActive(false);
-    setmenuActive(false);
-    setPhotosActive(false);
-    setRevActive(true);
-    nav("/restaurant/Reviews");
-  };
-
-  /*
-  if (currentPage.pathname === "/restaurant") {
-    activateFeed();
-  } else if (currentPage.pathname === "/restaurant/About") {
-    activateAbout();
-  } else if (currentPage.pathname === "/restaurant/Menu") {
-    activateMenu();
-  } else if (currentPage.pathname === "/restaurant/Photos") {
-    activatePhoto();
-  } else if (currentPage.pathname === "/restaurant/Reviews") {
-    activateRev();
-  }
-  */
   return (
     <div className=" w-full my-[4rem] bg-NavBg flex flex-row items-center justify-between">
       <div className="flex flex-row py-3 px-8 items-center">
@@ -85,56 +45,16 @@ const RestNavBar = () => {
         </div>
       </div>
       <div className=" text-lg font-semibold  ms-36 flex flex-row">
-        {feedActive ? (
-          <button className=" mr-12  text-deepRed border-b-4">Feed</button>
-        ) : (
-          <button
-            className=" mr-12  hover:text-deepRed hover:transition duration-150 ease-in-out hover:border-b-4"
-            onClick={activateFeed}
-          >
-            Feed
-          </button>
-        )}
-        {aboutActive ? (
-          <button className=" mr-12  text-deepRed border-b-4">About</button>
-        ) : (
-          <button
-            className=" mr-12  hover:text-deepRed hover:transition duration-150 ease-in-out hover:border-b-4"
-            onClick={activateAbout}
-          >
-            About
-          </button>
-        )}
-        {menuActive ? (
-          <button className=" mr-12  text-deepRed border-b-4">Menu</button>
-        ) : (
-          <button
-            className=" mr-12  hover:text-deepRed hover:transition duration-150 ease-in-out hover:border-b-4"
-            onClick={activateMenu}
-          >
-            Menu
-          </button>
-        )}
-        {photosActive ? (
-          <button className=" mr-12  text-deepRed border-b-4">Photos</button>
-        ) : (
-          <button
-            className=" mr-12  hover:text-deepRed hover:transition duration-150 ease-in-out hover:border-b-4"
-            onClick={activatePhoto}
-          >
-            Photos
-          </button>
-        )}
-        {revActive ? (
-          <button className=" mr-12  text-deepRed border-b-4">Reviews</button>
-        ) : (
-          <button
-            className=" mr-12  hover:text-deepRed hover:transition duration-150 ease-in-out hover:border-b-4"
-            onClick={activateRev}
-          >
-            Reviews
-          </button>
-        )}
+        {navOptions.map((navOption, index) => {
+          return (
+            <RestNavButton
+              key={index}
+              link={navOption.link}
+              currentPage={currentPage.pathname}
+              text={navOption.name}
+            ></RestNavButton>
+          );
+        })}
       </div>
     </div>
   );
