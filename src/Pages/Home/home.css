@@ -179,6 +179,56 @@
   border-radius: 5px;
 }
 
+.checkbox-container-rest {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 130px;
+  height: 25px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.checkbox-container-rest input[type="checkbox"] {
+  margin-right: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d9d9d9;
+  background-color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.checkbox-container-rest label {
+  color: #000;
+  font-family: "Inter";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 133.333% */
+  cursor: pointer; /* Added flex-basis to make four checkboxes on top take up 25% width each */
+}
+
+.checkbox-container-rest input[type="checkbox"]::after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f00c";
+  font-weight: 1000;
+  color: #f26d6d;
+  display: none;
+  font-size: 15px;
+}
+
+.checkbox-container-rest input[type="checkbox"]:checked::after {
+  display: block;
+  margin-left: 2px;
+  border-radius: 5px;
+}
+
 .pricerange {
   margin-top: 10px;
   width: 650px;
