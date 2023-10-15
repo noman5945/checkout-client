@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import RestaurantListCard from "./RestaurantListCard/RestaurantListCard";
 import { Link } from "react-router-dom";
+import RestaurantFilter from "./RestaurantFilter/RestaurantFilter";
 
 const Restaurant = () => {
   const [restaurants, setRestaurants] = useState([]);
@@ -24,16 +25,20 @@ const Restaurant = () => {
       .then((data) => setRestaurants(data));
   }, []);
   return (
-    <div>
-      <div className="flex flex-row"></div>
-      {restaurants.map((restaurant) => (
-        <Link key={restaurant._id} to={"/restaurant"}>
-          <RestaurantListCard
-            resturant={restaurant}
-            time={time}
-          ></RestaurantListCard>
-        </Link>
-      ))}
+    <div className="flex flex-row justify-center items-start">
+      <div>
+        <RestaurantFilter></RestaurantFilter>
+      </div>
+      <div>
+        {restaurants.map((restaurant) => (
+          <Link key={restaurant._id} to={"/restaurant"}>
+            <RestaurantListCard
+              resturant={restaurant}
+              time={time}
+            ></RestaurantListCard>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };

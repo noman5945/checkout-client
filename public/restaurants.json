@@ -28,5 +28,15 @@
     "closing": "11:00pm",
     "WorkTime": "Day",
     "lowestPrice": "325"
+  },
+  {
+    "_id": "03",
+    "name": "Chillox2.0",
+    "img": "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg",
+    "ratings": "4.7",
+    "opening": "10:00am",
+    "closing": "11:00pm",
+    "WorkTime": "Day",
+    "lowestPrice": "325"
   }
 ]
