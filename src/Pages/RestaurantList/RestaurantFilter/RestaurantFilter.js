@@ -3,6 +3,8 @@ import RestaurantFilterFeature from "./RestaurantFilterFeatures/RestaurantFilter
 import FilterHeader from "./FilterHeader/FilterHeader";
 import FilterLocationTags from "./FilterLocationTags/FilterLocationTags";
 import FIlterPriceRange from "./FilterPriceRange/FIlterPriceRange";
+import RadioButtonHorizontal from "../../Shared/RadioButtonOptions/RadioButtonHorizontal";
+import FilterBottomPic from "../../Shared/Icons/FilterBottomPic";
 
 const RestaurantFilter = () => {
   //const tags = ["Burger", "Pizza", "Coffee", "French fries"];
@@ -13,6 +15,10 @@ const RestaurantFilter = () => {
       <FilterLocationTags></FilterLocationTags>
       <RestaurantFilterFeature></RestaurantFilterFeature>
       <FIlterPriceRange></FIlterPriceRange>
+      <RadioButtonHorizontal></RadioButtonHorizontal>
+      <div className=" flex justify-center mt-[27px]">
+        <FilterBottomPic></FilterBottomPic>
+      </div>
     </div>
   );
 };
