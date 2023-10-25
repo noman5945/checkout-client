@@ -15,6 +15,9 @@ const Login = () => {
             <p className="text-center pt-[13px] pb-[12px] text-LetBlack">
               Sign Up
             </p>
+            <p className="text-center pt-[13px] pb-[12px] text-LetBlack">
+              Sign In
+            </p>
           </div>
         </div>
         <h3 className="font-bold text-lg">Hello!</h3>
