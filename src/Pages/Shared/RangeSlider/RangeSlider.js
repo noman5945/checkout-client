@@ -3,11 +3,11 @@ import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 
 function valuetext(value) {
-  return `${value}°C`;
+  return `${value * 100}`;
 }
 
 export default function RangeSlider() {
-  const [value, setValue] = React.useState([20, 37]);
+  const [value, setValue] = React.useState([0, 1000]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -18,7 +18,7 @@ export default function RangeSlider() {
       <div className="flex flex-row items-center">
         <input
           style={{
-            width: 30,
+            width: 45,
             height: 25,
           }}
           value={"$" + value[0].toString()}
@@ -27,6 +27,9 @@ export default function RangeSlider() {
         <Slider
           getAriaLabel={() => "Price range"}
           value={value}
+          min={200}
+          step={1}
+          max={1500}
           onChange={handleChange}
           valueLabelDisplay="auto"
           getAriaValueText={valuetext}
@@ -37,7 +40,7 @@ export default function RangeSlider() {
         />
         <input
           style={{
-            width: 30,
+            width: 45,
             height: 25,
           }}
           value={"$" + value[1].toString()}
