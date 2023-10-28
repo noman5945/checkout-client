@@ -5,7 +5,7 @@ const Dropdown = ({ selected, options }) => {
   return (
     <label className=" p-2">
       <select
-        className=" bg-[inherit] text-LetWhite"
+        className=" bg-[inherit] text-LetBlack"
         value={option}
         onChange={(e) => setOption(e.target.value)}
       >

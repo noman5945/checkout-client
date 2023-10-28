@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "../home.css";
 import Tags from "../../Shared/Tags/Tags";
+import Dropdown from "../../Shared/Dropdown/Dropdown";
 
 const HomeLocation = () => {
   const [tags, setTags] = useState("");
   const [grouptags, setGroupTags] = useState([]);
+  //const [locations,setlocations]=useState('Dhanmondi')
+
+  const currentLoc = "Dhanmondi";
+  const locs = ["Mohammadpur", "Gulshan", "Uttara", "Dhanmondi", "Khilgaon"];
 
   const handleDeleteChip = (idx) => {
     setGroupTags((grouptag) => grouptag.filter((_, index) => index !== idx));
@@ -46,14 +50,8 @@ const HomeLocation = () => {
           />
         </ul>
       </div>
-
-      <div className="dropdown">
-        <button className="dropbtn">Select a Location</button>
-        <div className="dropdown-content">
-          <Link data-location="Location 1">Location 1</Link>
-          <Link data-location="Location 2">Location 2</Link>
-          <Link data-location="Location 3">Location 3</Link>
-        </div>
+      <div className=" dropbtn">
+        <Dropdown selected={currentLoc} options={locs}></Dropdown>
       </div>
     </div>
   );

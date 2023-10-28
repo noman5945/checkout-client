@@ -4,7 +4,7 @@ import { useState } from "react";
 import "./Slider.css";
 
 const Range = () => {
-  const [range, setRange] = useState([30, 80]);
+  const [range, setRange] = useState([200, 1000]);
   const updaterange = (e, item) => {
     setRange(item);
   };
@@ -13,7 +13,7 @@ const Range = () => {
       <div className="main">
         <input
           style={{
-            width: 30,
+            width: 45,
             height: 25,
           }}
           value={"$" + range[0].toString()}
@@ -23,6 +23,9 @@ const Range = () => {
           value={range}
           valueLabelDisplay="auto"
           onChange={updaterange}
+          min={200}
+          step={1}
+          max={1500}
           disableSwap
           getAriaLabel={() => "Minimum distance shift"}
           style={{
@@ -33,7 +36,7 @@ const Range = () => {
         <input
           value={"$" + range[1].toString()}
           style={{
-            width: 30,
+            width: 45,
             height: 25,
           }}
           className="price-input"
