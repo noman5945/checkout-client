@@ -9,6 +9,7 @@ import Login from "../Login/Login";
 
 const Home = () => {
   const link = "/restaurantlist";
+  const apiURL = "http://localhost:5000/getRestaurents";
 
   const [foodKeys, setFoodKeys] = useState([]);
   const [location, setlocation] = useState("");
@@ -23,6 +24,13 @@ const Home = () => {
       highestPrice,
     };
     console.log(searchDataSend);
+    fetch(apiURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(searchDataSend),
+    });
   };
   return (
     <div>
