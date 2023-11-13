@@ -3,10 +3,12 @@ import { Slider } from "@mui/material";
 import { useState } from "react";
 import "./Slider.css";
 
-const Range = () => {
+const Range = ({ starPrice, highestPrice }) => {
   const [range, setRange] = useState([200, 1000]);
   const updaterange = (e, item) => {
     setRange(item);
+    starPrice(range[0]);
+    highestPrice(range[1]);
   };
   return (
     <>

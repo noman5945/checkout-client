@@ -9,11 +9,20 @@ import Login from "../Login/Login";
 
 const Home = () => {
   const link = "/restaurantlist";
+
   const [foodKeys, setFoodKeys] = useState([]);
   const [location, setlocation] = useState("");
+  const [startingPrice, setStartingPrice] = useState(0);
+  const [highestPrice, setHighestPrice] = useState(0);
+
   const handleSearch = () => {
-    console.log(foodKeys);
-    console.log(location);
+    const searchDataSend = {
+      foodKeys,
+      location,
+      startingPrice,
+      highestPrice,
+    };
+    console.log(searchDataSend);
   };
   return (
     <div>
@@ -24,7 +33,10 @@ const Home = () => {
         setLocation={setlocation}
       ></HomeLocation>
       <HomeFeatures></HomeFeatures>
-      <Range></Range>
+      <Range
+        starPrice={setStartingPrice}
+        highestPrice={setHighestPrice}
+      ></Range>
       <SearchButton link={link} onClickFunc={handleSearch}></SearchButton>
       <Login></Login>
     </div>

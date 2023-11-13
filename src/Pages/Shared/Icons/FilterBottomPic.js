@@ -284,8 +284,8 @@ const FilterBottomPic = () => {
           y2="53.1951"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#C5E9FA" />
-          <stop offset="1" stop-color="#C4F4EA" />
+          <stop stopColor="#C5E9FA" />
+          <stop offset="1" stopColor="#C4F4EA" />
         </linearGradient>
       </defs>
     </svg>
