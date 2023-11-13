@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import LocationButton from "../../../Shared/Buttons/LocationButton/LocationButton";
 import HollowStar from "../../../Shared/Icons/HollowStar";
 import FollowButton from "../../../Shared/Buttons/FollowButton/FollowButton";
@@ -29,12 +29,13 @@ const RightSide = () => {
   const selectedFoods = ["Burger", "French Fries"];
   let foundFoods = null;
 
+  const [location, setlocation] = useState("");
   const handleFollow = () => {
     console.log("Follow this resturent");
   };
 
   const handleShare = () => {
-    console.log("Sharing this resturent");
+    console.log("Sharing this resturent", location);
   };
 
   return (
@@ -86,7 +87,11 @@ const RightSide = () => {
       </div>
       <div className=" flex flex-row items-start">
         <div className=" cursor-pointer w-[9rem] h-[2rem] bg-seldFeature rounded mr-2">
-          <Dropdown selected={currentLoc} options={locs}></Dropdown>
+          <Dropdown
+            selected={currentLoc}
+            options={locs}
+            setParentData={setlocation}
+          ></Dropdown>
         </div>
         <div className=" flex flex-row">
           {selectedFoods.map((food, index) => {

@@ -14,9 +14,9 @@ const RestaurantFilterFeature = () => {
   ];
   return (
     <div className=" grid grid-cols-2">
-      {features.map((feature) => {
+      {features.map((feature, index) => {
         return (
-          <div className="checkbox-container-rest">
+          <div key={index} className="checkbox-container-rest">
             <input type="checkbox" id={feature.feId} />
             <label htmlFor={feature.feId}>{feature.name}</label>
           </div>

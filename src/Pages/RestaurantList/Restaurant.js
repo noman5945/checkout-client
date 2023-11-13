@@ -9,6 +9,7 @@ import "./Restaurant.css";
 
 const Restaurant = () => {
   const [restaurants, setRestaurants] = useState([]);
+  const [location, setlocation] = useState("");
   let today = new Date();
   let dayCheck =
     today.getHours() > 6 && today.getHours() < 24 ? "Day" : "Night";
@@ -22,9 +23,11 @@ const Restaurant = () => {
     currentTime,
     dayCheck,
   };
-  console.log(time);
+  const handleSearchFilter = () => {
+    console.log(location);
+  };
   useEffect(() => {
-    fetch("restaurants.json")
+    fetch("http://localhost:5000/allrestaurants")
       .then((res) => res.json())
       .then((data) => setRestaurants(data));
   }, []);
@@ -46,7 +49,10 @@ const Restaurant = () => {
         </div>
         <div className="flex flex-row justify-center items-start">
           <div>
-            <RestaurantFilter></RestaurantFilter>
+            <RestaurantFilter
+              setLocation={setlocation}
+              handleFilter={handleSearchFilter}
+            ></RestaurantFilter>
           </div>
           <div>
             {restaurants.map((restaurant) => (

@@ -3,20 +3,22 @@ import "../home.css";
 import Tags from "../../Shared/Tags/Tags";
 import Dropdown from "../../Shared/Dropdown/Dropdown";
 
-const HomeLocation = () => {
+const HomeLocation = ({ setFoodKeys, foodKeys, setLocation }) => {
   const [tags, setTags] = useState("");
-  const [grouptags, setGroupTags] = useState([]);
+  //const [grouptags, setGroupTags] = useState([]);
   //const [locations,setlocations]=useState('Dhanmondi')
 
   const currentLoc = "Dhanmondi";
   const locs = ["Mohammadpur", "Gulshan", "Uttara", "Dhanmondi", "Khilgaon"];
 
   const handleDeleteChip = (idx) => {
-    setGroupTags((grouptag) => grouptag.filter((_, index) => index !== idx));
+    setFoodKeys((grouptag) => grouptag.filter((_, index) => index !== idx));
+    //setFoodKeys(grouptags);
   };
   const handleTag = (event) => {
     if (event.key === "Enter" && tags.trim() !== "") {
-      setGroupTags([...grouptags, tags.trim()]);
+      setFoodKeys([...foodKeys, tags.trim()]);
+      //setFoodKeys(grouptags);
       setTags("");
     }
   };
@@ -29,7 +31,7 @@ const HomeLocation = () => {
     <div className="location">
       <div className="tag-area">
         <ul>
-          {grouptags.map((word, index) => {
+          {foodKeys.map((word, index) => {
             return (
               <Tags
                 key={index}
@@ -51,7 +53,11 @@ const HomeLocation = () => {
         </ul>
       </div>
       <div className=" dropbtn">
-        <Dropdown selected={currentLoc} options={locs}></Dropdown>
+        <Dropdown
+          selected={currentLoc}
+          setParentData={setLocation}
+          options={locs}
+        ></Dropdown>
       </div>
     </div>
   );
