@@ -30,7 +30,7 @@ const Home = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(searchDataSend),
-    });
+    }).then((data) => data.json());
   };
   return (
     <div>
