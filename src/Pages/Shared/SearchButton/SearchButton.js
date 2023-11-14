@@ -1,15 +1,13 @@
 import React from "react";
 import "../../Home/home.css";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
-const SearchButton = ({ link, onClickFunc }) => {
+const SearchButton = ({ onClickFunc }) => {
   return (
     <div>
-      <Link to={link}>
-        <button type="submit" className="searchbutton" onClick={onClickFunc}>
-          Search
-        </button>
-      </Link>
+      <button type="submit" className="searchbutton" onClick={onClickFunc}>
+        Search
+      </button>
     </div>
   );
 };

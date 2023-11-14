@@ -6,6 +6,7 @@ import HomeFeatures from "./HomeFeatures/HomeFeatures";
 import SearchButton from "../Shared/SearchButton/SearchButton";
 import Range from "../Shared/Slider/Range";
 import Login from "../Login/Login";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const link = "/restaurantlist";
@@ -15,6 +16,7 @@ const Home = () => {
   const [location, setlocation] = useState("");
   const [startingPrice, setStartingPrice] = useState(0);
   const [highestPrice, setHighestPrice] = useState(0);
+  const navigate = useNavigate();
 
   const handleSearch = () => {
     const searchDataSend = {
@@ -23,14 +25,18 @@ const Home = () => {
       startingPrice,
       highestPrice,
     };
-    console.log(searchDataSend);
+    //console.log(searchDataSend);
     fetch(apiURL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(searchDataSend),
-    }).then((data) => data.json());
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        navigate(link, { state: { data } });
+      });
   };
   return (
     <div>

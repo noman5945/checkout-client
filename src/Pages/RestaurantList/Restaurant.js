@@ -1,15 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import RestaurantListCard from "./RestaurantListCard/RestaurantListCard";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import RestaurantFilter from "./RestaurantFilter/RestaurantFilter";
 import "../Home/home.css";
 import restLogo from "../../assets/BackGroundImages/Checkout-Logowhite_2.png";
 import restBackGround from "../../assets/BackGroundImages/RestBackGround.png";
 import "./Restaurant.css";
+//useEffect,
 
 const Restaurant = () => {
-  const [restaurants, setRestaurants] = useState([]);
+  //const [restaurants, setRestaurants] = useState([]);
   const [location, setlocation] = useState("");
+  const { state } = useLocation();
+  const { data } = state;
+  //console.log(data);
+  //setRestaurants(data);
+  const restaurants = data;
+
   let today = new Date();
   let dayCheck =
     today.getHours() > 6 && today.getHours() < 24 ? "Day" : "Night";
@@ -26,11 +33,13 @@ const Restaurant = () => {
   const handleSearchFilter = () => {
     console.log(location);
   };
+  /*
   useEffect(() => {
     fetch("http://localhost:5000/allrestaurants")
       .then((res) => res.json())
       .then((data) => setRestaurants(data));
   }, []);
+  */
   return (
     <div className=" relative">
       <div className=" absolute left-[122px]">

@@ -9,7 +9,7 @@ const HomeLocation = ({ setFoodKeys, foodKeys, setLocation }) => {
   //const [locations,setlocations]=useState('Dhanmondi')
 
   const currentLoc = "Dhanmondi";
-  const locs = ["Mohammadpur", "Gulshan", "Uttara", "Dhanmondi", "Khilgaon"];
+  const locs = ["Mohammedpur", "Gulshan", "Uttara", "Dhanmondi", "Khilgaon"];
 
   const handleDeleteChip = (idx) => {
     setFoodKeys((grouptag) => grouptag.filter((_, index) => index !== idx));
