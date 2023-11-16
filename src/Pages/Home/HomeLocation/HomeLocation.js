@@ -8,17 +8,22 @@ const HomeLocation = ({ setFoodKeys, foodKeys, setLocation }) => {
   //const [grouptags, setGroupTags] = useState([]);
   //const [locations,setlocations]=useState('Dhanmondi')
 
-  const currentLoc = "Dhanmondi";
-  const locs = ["Mohammedpur", "Gulshan", "Uttara", "Dhanmondi", "Khilgaon"];
+  const currentLoc = "Set Location";
+  const locs = [
+    "Mohammedpur",
+    "Gulshan",
+    "Uttara",
+    "Dhanmondi",
+    "Khilgaon",
+    "Set Location",
+  ];
 
   const handleDeleteChip = (idx) => {
     setFoodKeys((grouptag) => grouptag.filter((_, index) => index !== idx));
-    //setFoodKeys(grouptags);
   };
   const handleTag = (event) => {
     if (event.key === "Enter" && tags.trim() !== "") {
       setFoodKeys([...foodKeys, tags.trim()]);
-      //setFoodKeys(grouptags);
       setTags("");
     }
   };

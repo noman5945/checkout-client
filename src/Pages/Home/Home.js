@@ -14,9 +14,13 @@ const Home = () => {
 
   const [foodKeys, setFoodKeys] = useState([]);
   const [location, setlocation] = useState("");
-  const [startingPrice, setStartingPrice] = useState(0);
-  const [highestPrice, setHighestPrice] = useState(0);
+  const [startingPrice, setStartingPrice] = useState(300);
+  const [highestPrice, setHighestPrice] = useState(900);
   const navigate = useNavigate();
+  const rangComps = {
+    start: startingPrice,
+    high: highestPrice,
+  };
 
   const handleSearch = () => {
     const searchDataSend = {
@@ -25,7 +29,9 @@ const Home = () => {
       startingPrice,
       highestPrice,
     };
-    //console.log(searchDataSend);
+    if (foodKeys.length === 0 || location === "") {
+      return alert("Insert food name and location");
+    }
     fetch(apiURL, {
       method: "POST",
       headers: {
@@ -50,6 +56,7 @@ const Home = () => {
       <Range
         starPrice={setStartingPrice}
         highestPrice={setHighestPrice}
+        initalRange={rangComps}
       ></Range>
       <SearchButton link={link} onClickFunc={handleSearch}></SearchButton>
       <Login></Login>
