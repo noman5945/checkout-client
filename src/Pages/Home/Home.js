@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const link = "/restaurantlist";
-  const apiURL = "http://localhost:5000/getRestaurents";
 
   const [foodKeys, setFoodKeys] = useState([]);
   const [location, setlocation] = useState("");
@@ -32,17 +31,7 @@ const Home = () => {
     if (foodKeys.length === 0 || location === "") {
       return alert("Insert food name and location");
     }
-    fetch(apiURL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(searchDataSend),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        navigate(link, { state: { data } });
-      });
+    navigate(link, { state: { searchDataSend } });
   };
   return (
     <div>
