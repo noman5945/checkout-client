@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import RestaurantListCard from "./RestaurantListCard/RestaurantListCard";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import RestaurantFilter from "./RestaurantFilter/RestaurantFilter";
 import "../Home/home.css";
 import restLogo from "../../assets/BackGroundImages/Checkout-Logowhite_2.png";
@@ -11,10 +11,14 @@ import Loader from "../Shared/Loader/Loader";
 const Restaurant = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [loader, setLoader] = useState(false);
-  const [location, setlocation] = useState("");
   const { state } = useLocation();
   const { searchDataSend } = state;
-
+  const { startingPrice, highestPrice, location } = searchDataSend;
+  const InitValues = {
+    startingPrice,
+    highestPrice,
+  };
+  const [locat, setlocation] = useState(location);
   const apiURL = "http://localhost:5000/getRestaurents";
 
   let today = new Date();
@@ -31,7 +35,7 @@ const Restaurant = () => {
     dayCheck,
   };
   const handleSearchFilter = () => {
-    console.log(location);
+    console.log(locat);
   };
 
   useEffect(() => {
@@ -74,8 +78,11 @@ const Restaurant = () => {
         <div className="flex flex-row justify-center items-start">
           <div>
             <RestaurantFilter
+              location={location}
               setLocation={setlocation}
               handleFilter={handleSearchFilter}
+              initalPrices={InitValues}
+              initalSearchData={searchDataSend}
             ></RestaurantFilter>
           </div>
           <div>
@@ -83,12 +90,11 @@ const Restaurant = () => {
               <Loader></Loader>
             ) : (
               restaurants.map((restaurant) => (
-                <Link key={restaurant._id} to={"/restaurant"}>
-                  <RestaurantListCard
-                    resturant={restaurant}
-                    time={time}
-                  ></RestaurantListCard>
-                </Link>
+                <RestaurantListCard
+                  resturant={restaurant}
+                  time={time}
+                  key={restaurant._id}
+                ></RestaurantListCard>
               ))
             )}
           </div>

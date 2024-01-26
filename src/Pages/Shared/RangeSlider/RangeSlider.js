@@ -6,8 +6,9 @@ function valuetext(value) {
   return `${value * 100}`;
 }
 
-export default function RangeSlider() {
-  const [value, setValue] = React.useState([200, 1000]);
+export default function RangeSlider({ InitValues }) {
+  const { startingPrice, highestPrice } = InitValues;
+  const [value, setValue] = React.useState([startingPrice, highestPrice]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

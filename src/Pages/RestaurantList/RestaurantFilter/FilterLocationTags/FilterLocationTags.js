@@ -1,8 +1,9 @@
 import React from "react";
 import Dropdown from "../../../Shared/Dropdown/Dropdown";
 
-const FilterLocationTags = ({ setLocation }) => {
-  const currentLoc = "Dhanmondi";
+const FilterLocationTags = ({ setLocation, prevLoc }) => {
+  //console.log( prevLoc);
+  const currentLoc = prevLoc;
   const locs = ["Mohammadpur", "Gulshan", "Uttara", "Dhanmondi", "Khilgaon"];
   return (
     <div className="flex flex-col">

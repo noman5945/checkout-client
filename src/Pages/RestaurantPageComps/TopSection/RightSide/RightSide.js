@@ -7,7 +7,8 @@ import RestaurantFeatures from "../RestaurantFeatures/RestaurantFeatures";
 import Dropdown from "../../../Shared/Dropdown/Dropdown";
 import "../../../Home/home.css";
 
-const RightSide = () => {
+const RightSide = ({ items }) => {
+  const { name } = items;
   const follwerNum = "12.4k";
   const revNum = "473";
   const ratings = "4.7";
@@ -41,7 +42,7 @@ const RightSide = () => {
   return (
     <div className=" ml-[100px] mt-[4rem] w-[45rem]">
       <div className=" flex flex-row justify-between">
-        <h2 className=" text-xl font-bold text-LightBlack">Rest Name</h2>
+        <h2 className=" text-xl font-bold text-LightBlack">{name}</h2>
         <div>
           <LocationButton></LocationButton>
         </div>

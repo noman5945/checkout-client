@@ -1,6 +1,7 @@
 import React from "react";
 import StarIcon from "../../Shared/Icons/StarIcon";
 import LocationIcon from "../../Shared/Icons/LocationIcon";
+import { useNavigate } from "react-router-dom";
 
 const RestaurantListCard = ({ resturant, time }) => {
   const { img, name, opening, closing, WorkTime, lowestPrice, ratings } =
@@ -26,8 +27,17 @@ const RestaurantListCard = ({ resturant, time }) => {
 
   const openColor = openCheck ? "text-greenopen" : "text-deepRed";
   const openText = openCheck ? "Open Now :" : "Closed :";
+
+  const navigate = useNavigate();
+  const handlePageChange = () => {
+    navigate("/restaurant", { state: { resturant } });
+  };
+
   return (
-    <div className=" bg-fadedbg p-4 h-[105px] w-[700px] rounded-lg my-4 hover:bg-deepfadebg hover:cursor-pointer">
+    <div
+      className=" bg-fadedbg p-4 h-[105px] w-[700px] rounded-lg my-4 hover:bg-deepfadebg hover:cursor-pointer"
+      onClick={handlePageChange}
+    >
       <div className="flex flex-row justify-between">
         <div className="flex flex-row">
           <img className=" h-[75px] w-[75px] rounded-full" src={img} alt="" />
