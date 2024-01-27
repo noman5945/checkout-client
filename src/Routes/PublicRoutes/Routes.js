@@ -23,27 +23,31 @@ export const routes = createBrowserRouter([
         element: <Restaurant></Restaurant>,
       },
       {
-        path: "/restaurant",
+        path: "/restaurant/:id",
         element: <RestaurantPage></RestaurantPage>,
+        loader: async ({ params }) =>
+          await fetch(
+            `http://localhost:5000/restaurentDetails?id=${params.id}`
+          ),
         children: [
           {
-            path: "/restaurant",
+            path: "/restaurant/:id",
             element: <Feed></Feed>,
           },
           {
-            path: "/restaurant/About",
+            path: "/restaurant/:id/About",
             element: <About></About>,
           },
           {
-            path: "/restaurant/Menu",
+            path: "/restaurant/:id/Menu",
             element: <Menu></Menu>,
           },
           {
-            path: "/restaurant/Photos",
+            path: "/restaurant/:id/Photos",
             element: <Photos></Photos>,
           },
           {
-            path: "/restaurant/Reviews",
+            path: "/restaurant/:id/Reviews",
             element: <Reviews></Reviews>,
           },
         ],

@@ -3,30 +3,31 @@ import RadioButtonOptions from "../../Shared/RadioButtonOptions/RadioButtonOptio
 import { useLocation } from "react-router-dom";
 import RestNavButton from "./RestNavButton/RestNavButton";
 
-const RestNavBar = () => {
+const RestNavBar = ({ id }) => {
   const currentPage = useLocation();
   console.log(currentPage.pathname);
+  console.log(id);
 
   const navOptions = [
     {
       name: "Feed",
-      link: "/restaurant",
+      link: `/restaurant/${id}`,
     },
     {
       name: "About",
-      link: "/restaurant/About",
+      link: `/restaurant/${id}/About`,
     },
     {
       name: "Menu",
-      link: "/restaurant/Menu",
+      link: `/restaurant/${id}/Menu`,
     },
     {
       name: "Photos",
-      link: "/restaurant/Photos",
+      link: `/restaurant/${id}/Photos`,
     },
     {
       name: "Reviews",
-      link: "/restaurant/Reviews",
+      link: `/restaurant/${id}/Reviews`,
     },
   ];
 

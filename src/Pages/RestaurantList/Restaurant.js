@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import RestaurantListCard from "./RestaurantListCard/RestaurantListCard";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import RestaurantFilter from "./RestaurantFilter/RestaurantFilter";
 import "../Home/home.css";
 import restLogo from "../../assets/BackGroundImages/Checkout-Logowhite_2.png";
@@ -90,11 +90,12 @@ const Restaurant = () => {
               <Loader></Loader>
             ) : (
               restaurants.map((restaurant) => (
-                <RestaurantListCard
-                  resturant={restaurant}
-                  time={time}
-                  key={restaurant._id}
-                ></RestaurantListCard>
+                <Link key={restaurant._id} to={`/restaurant/${restaurant._id}`}>
+                  <RestaurantListCard
+                    resturant={restaurant}
+                    time={time}
+                  ></RestaurantListCard>
+                </Link>
               ))
             )}
           </div>
