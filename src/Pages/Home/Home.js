@@ -15,6 +15,8 @@ const Home = () => {
   const [location, setlocation] = useState("");
   const [startingPrice, setStartingPrice] = useState(300);
   const [highestPrice, setHighestPrice] = useState(900);
+  const [persons, setPersons] = useState(0);
+  const [features, setFeatures] = useState([]);
   const navigate = useNavigate();
   const rangComps = {
     start: startingPrice,
@@ -27,12 +29,17 @@ const Home = () => {
       location,
       startingPrice,
       highestPrice,
+      features,
+      persons,
     };
-    if (foodKeys.length === 0 || location === "") {
-      return alert("Insert food name and location");
+    if (foodKeys.length === 0 || location === "" || persons === 0) {
+      return alert(
+        " Food names , location or number of Persons missing. Check again"
+      );
     }
     navigate(link, { state: { searchDataSend } });
   };
+
   return (
     <div>
       <HomeBanner></HomeBanner>
@@ -41,7 +48,11 @@ const Home = () => {
         foodKeys={foodKeys}
         setLocation={setlocation}
       ></HomeLocation>
-      <HomeFeatures></HomeFeatures>
+      <HomeFeatures
+        setFeatures={setFeatures}
+        features={features}
+        setPersons={setPersons}
+      ></HomeFeatures>
       <Range
         starPrice={setStartingPrice}
         highestPrice={setHighestPrice}

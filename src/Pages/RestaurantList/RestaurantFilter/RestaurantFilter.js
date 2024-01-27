@@ -13,9 +13,11 @@ const RestaurantFilter = ({
   initalPrices,
   location,
   initalSearchData,
+  features,
+  personNumber,
 }) => {
   const { foodKeys } = initalSearchData;
-  console.log(foodKeys);
+  //console.log(foodKeys);
   //const tags = ["Burger", "Pizza", "Coffee", "French fries"];
   //console.log("inital:" + initalPrices.highestPrice);
   return (
@@ -26,9 +28,13 @@ const RestaurantFilter = ({
         prevLoc={location}
       ></FilterLocationTags>
       <FilterFoodTags tags={foodKeys}></FilterFoodTags>
-      <RestaurantFilterFeature></RestaurantFilterFeature>
+      <RestaurantFilterFeature
+        givenFeatures={features}
+      ></RestaurantFilterFeature>
       <FIlterPriceRange initValus={initalPrices}></FIlterPriceRange>
-      <RadioButtonHorizontal></RadioButtonHorizontal>
+      <RadioButtonHorizontal
+        givenPersons={personNumber}
+      ></RadioButtonHorizontal>
       <div className=" flex justify-center mt-[27px]">
         <FilterBottomPic></FilterBottomPic>
       </div>

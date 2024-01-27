@@ -13,7 +13,8 @@ const Restaurant = () => {
   const [loader, setLoader] = useState(false);
   const { state } = useLocation();
   const { searchDataSend } = state;
-  const { startingPrice, highestPrice, location } = searchDataSend;
+  const { startingPrice, highestPrice, location, features, persons } =
+    searchDataSend;
   const InitValues = {
     startingPrice,
     highestPrice,
@@ -35,7 +36,7 @@ const Restaurant = () => {
     dayCheck,
   };
   const handleSearchFilter = () => {
-    console.log(locat);
+    console.log(features + " " + locat);
   };
 
   useEffect(() => {
@@ -83,6 +84,8 @@ const Restaurant = () => {
               handleFilter={handleSearchFilter}
               initalPrices={InitValues}
               initalSearchData={searchDataSend}
+              features={features}
+              personNumber={persons}
             ></RestaurantFilter>
           </div>
           <div>
