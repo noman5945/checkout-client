@@ -6,15 +6,24 @@ import PaymentAndContacts from "../Pages/RestaurantPageComps/PaymentAndContacts/
 
 const RestaurantPage = () => {
   const resturant = useLoaderData();
-  const { _id, img, name } = resturant;
+  const { _id, img, name, features, location, mainFoods, lowestPrice } =
+    resturant;
+  const foodKeys = JSON.parse(localStorage.getItem("foodKeys"));
+  const selectedFeatures = JSON.parse(localStorage.getItem("selectedFeatures"));
   const top_rightside_items = {
     name,
     img,
+    foodKeys,
+    selectedFeatures,
+    features,
+    mainFoods,
+    loc: location,
   };
+
   return (
     <div className="container mx-auto">
       <TopSection rightItems={top_rightside_items}></TopSection>
-      <RestNavBar id={_id}></RestNavBar>
+      <RestNavBar id={_id} lowestCost={lowestPrice}></RestNavBar>
       <div className=" flex flex-row">
         <PaymentAndContacts></PaymentAndContacts>
         <Outlet></Outlet>

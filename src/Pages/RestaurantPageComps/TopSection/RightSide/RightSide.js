@@ -8,26 +8,33 @@ import Dropdown from "../../../Shared/Dropdown/Dropdown";
 import "../../../Home/home.css";
 
 const RightSide = ({ items }) => {
-  const { name } = items;
+  const { name, foodKeys, selectedFeatures, features, loc, mainFoods } = items;
   const follwerNum = "12.4k";
   const revNum = "473";
   const ratings = "4.7";
   const time = "10:00am-11:00pm";
   const distance = "800";
-  const features = [
+  const Features = features;
+
+  /**
+   * [
     "Burger Joint",
     "Parking Lot",
     "Smoking Zone",
     "Open space",
     "Online Payment",
   ];
-  const selectedFeatures = ["Burger Joint", "Open space", "Online Payment"];
+   */
 
-  const currentLoc = "Dhanmondi";
+  //["Burger Joint", "Open space", "Online Payment"];
+
+  const SelectedFeatures = selectedFeatures;
+
+  const currentLoc = loc;
   const locs = ["Mohammadpur", "Gulshan", "Uttara", "Dhanmondi", "Khilgaon"];
 
-  const RestFoods = ["Burger", "French Fries", "Shakes", "Chicken"];
-  const selectedFoods = ["Burger", "French Fries"];
+  const RestFoods = mainFoods;
+  const selectedFoods = foodKeys;
   let foundFoods = null;
 
   const [location, setlocation] = useState("");
@@ -78,11 +85,11 @@ const RightSide = ({ items }) => {
         </div>
       </div>
       <div className=" my-5 w-[25rem] grid grid-cols-4 gap-1">
-        {features.map((feature, index) => (
+        {Features.map((feature, index) => (
           <RestaurantFeatures
             key={index}
             text={feature}
-            selected={selectedFeatures}
+            selected={SelectedFeatures}
           ></RestaurantFeatures>
         ))}
       </div>

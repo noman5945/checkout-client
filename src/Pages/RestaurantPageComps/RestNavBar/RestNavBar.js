@@ -3,7 +3,7 @@ import RadioButtonOptions from "../../Shared/RadioButtonOptions/RadioButtonOptio
 import { useLocation } from "react-router-dom";
 import RestNavButton from "./RestNavButton/RestNavButton";
 
-const RestNavBar = ({ id }) => {
+const RestNavBar = ({ id, lowestCost }) => {
   const currentPage = useLocation();
   console.log(currentPage.pathname);
   console.log(id);
@@ -38,7 +38,7 @@ const RestNavBar = ({ id }) => {
           <p className=" text-lg font-bold">Starts From</p>
           <div className=" bg-LetWhite text-deepRed text-xl text-center rounded">
             <span>৳</span>
-            350
+            {lowestCost}
           </div>
         </div>
         <div>

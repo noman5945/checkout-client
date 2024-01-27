@@ -37,6 +37,8 @@ const Home = () => {
         " Food names , location or number of Persons missing. Check again"
       );
     }
+    localStorage.setItem("foodKeys", JSON.stringify(foodKeys));
+    localStorage.setItem("selectedFeatures", JSON.stringify(features));
     navigate(link, { state: { searchDataSend } });
   };
 
