@@ -17,6 +17,7 @@ module.exports = {
       borderBlack: "#4F4D4D",
       seldFeature: "#F26D6D",
       NavBg: "#F9F6F6",
+      whitebg: "#FFFEFE",
     },
   },
   daisyui: {

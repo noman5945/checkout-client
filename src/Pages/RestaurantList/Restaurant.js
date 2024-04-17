@@ -7,10 +7,13 @@ import restLogo from "../../assets/BackGroundImages/Checkout-Logowhite_2.png";
 import restBackGround from "../../assets/BackGroundImages/RestBackGround.png";
 import "./Restaurant.css";
 import Loader from "../Shared/Loader/Loader";
+import Dropdown from "../Shared/Dropdown/Dropdown";
 
 const Restaurant = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [loader, setLoader] = useState(false);
+  const sortOPtions = ["Price", "Rating"];
+  const [sortby, setSortBy] = useState(sortOPtions[0]);
   const { state } = useLocation();
   const { searchDataSend } = state;
   const { startingPrice, highestPrice, location, features, persons } =
@@ -73,6 +76,20 @@ const Restaurant = () => {
           <div>
             <div className="search-box">
               <input type="text" placeholder="Search..." />
+            </div>
+          </div>
+        </div>
+        <div className=" relative left-[76%]">
+          <div className=" flex flex-row items-center">
+            <p className=" font-bold text-base">Sort By:</p>
+            <div className=" bg-fadedbg w-[200px] h-[35px] flex flex-row p-1">
+              <div className=" bg-whitebg w-[73px] h-[27px]">
+                <Dropdown
+                  selected={sortby}
+                  options={sortOPtions}
+                  setParentData={setSortBy}
+                ></Dropdown>
+              </div>
             </div>
           </div>
         </div>
