@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 
-const Dropdown = ({ selected, options, setParentData }) => {
+const Dropdown = ({ selected, options, setParentData, otherFn }) => {
   const [option, setOption] = useState(selected);
   const handleChange = (e) => {
     setOption(e.target.value);
     if (setParentData !== null) {
       setParentData(e.target.value);
+    }
+    if (typeof otherFn === "function") {
+      otherFn();
     }
   };
   return (

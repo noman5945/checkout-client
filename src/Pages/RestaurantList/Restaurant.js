@@ -13,7 +13,9 @@ const Restaurant = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [loader, setLoader] = useState(false);
   const sortOPtions = ["Price", "Rating"];
+  const sortTypes = ["Asc", "Desc"];
   const [sortby, setSortBy] = useState(sortOPtions[0]);
+  const [sortType, setSortType] = useState(sortTypes[0]);
   const { state } = useLocation();
   const { searchDataSend } = state;
   const { startingPrice, highestPrice, location, features, persons } =
@@ -63,6 +65,26 @@ const Restaurant = () => {
       });
   }, [searchDataSend]);
 
+  const sortData = () => {
+    const copyArray = [...restaurants];
+    if (sortby === "Price") {
+      copyArray.sort((a, b) => {
+        return sortType === "Desc"
+          ? b.lowestPrice - a.lowestPrice
+          : a.lowestPrice - b.lowestPrice;
+      });
+    }
+    //ratings
+    else if (sortby === "Rating") {
+      copyArray.sort((a, b) => {
+        return sortType === "Desc"
+          ? b.ratings - a.ratings
+          : a.ratings - b.ratings;
+      });
+    }
+    setRestaurants(copyArray);
+  };
+
   return (
     <div className=" relative">
       <div className=" absolute left-[122px]">
@@ -82,12 +104,20 @@ const Restaurant = () => {
         <div className=" relative left-[76%]">
           <div className=" flex flex-row items-center">
             <p className=" font-bold text-base">Sort By:</p>
-            <div className=" bg-fadedbg w-[200px] h-[35px] flex flex-row p-1">
+            <div className=" bg-fadedbg w-[200px] h-[35px] flex flex-row p-1 gap-3">
               <div className=" bg-whitebg w-[73px] h-[27px]">
                 <Dropdown
                   selected={sortby}
                   options={sortOPtions}
                   setParentData={setSortBy}
+                ></Dropdown>
+              </div>
+              <div className=" bg-whitebg w-[133px] h-[27px]">
+                <Dropdown
+                  selected={sortType}
+                  options={sortTypes}
+                  setParentData={setSortType}
+                  otherFn={sortData}
                 ></Dropdown>
               </div>
             </div>
