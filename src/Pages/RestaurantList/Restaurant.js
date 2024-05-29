@@ -25,7 +25,7 @@ const Restaurant = () => {
     highestPrice,
   };
   const [locat, setlocation] = useState(location);
-  const apiURL = "http://localhost:5000/getRestaurents";
+  const apiURL = "https://check-out-express-server.vercel.app/getRestaurents";
 
   let today = new Date();
   let dayCheck =
@@ -46,7 +46,7 @@ const Restaurant = () => {
 
   useEffect(() => {
     /*
-    fetch("http://localhost:5000/allrestaurants")
+    fetch("https://check-out-express-server.vercel.app/allrestaurants")
       .then((res) => res.json())
       .then((data) => setRestaurants(data));
     */

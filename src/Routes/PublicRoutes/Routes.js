@@ -27,7 +27,7 @@ export const routes = createBrowserRouter([
         element: <RestaurantPage></RestaurantPage>,
         loader: async ({ params }) =>
           await fetch(
-            `http://localhost:5000/restaurentDetails?id=${params.id}`
+            `https://check-out-express-server.vercel.app/restaurentDetails?id=${params.id}`
           ),
         children: [
           {
